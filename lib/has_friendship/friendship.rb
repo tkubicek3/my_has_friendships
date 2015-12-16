@@ -26,6 +26,10 @@ module HasFriendship
       find_relation(friendable, friend).where(status: "pending")
     end
 
+    def self.find_requested(friendable, friend)
+      find_relation(friendable, friend).where(status: "requested")
+    end
+
     def self.exist?(friendable, friend)
       find_relation(friendable, friend).any? && find_relation(friend, friendable).any?
     end
