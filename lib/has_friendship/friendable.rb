@@ -88,6 +88,10 @@ module HasFriendship
         HasFriendship::Friendship.find_relations(self, friend).any?
       end
 
+      def pending_friend?(friend)
+        HasFriendship::Friendship.find_pending(self, friend).any?
+      end
+
       private
 
       def has_blocked(friend)
